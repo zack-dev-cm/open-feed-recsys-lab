@@ -37,7 +37,8 @@ Generate commit-pinned reproducibility reports, source-backed claim audits, and 
 
 ## Publication Surfaces
 
-- Canonical: GitHub Pages at `https://zack-dev-cm.github.io/open-feed-recsys-lab/`
+- Canonical tutorial: GitHub Pages at `https://zack-dev-cm.github.io/open-feed-recsys-lab/tutorial.html`
+- Product overview: GitHub Pages at `https://zack-dev-cm.github.io/open-feed-recsys-lab/`
 - Source: GitHub repo
 - Install: ClawHub `open-feed-recsys-lab`, `x-algo-claim-auditor`, and `tinytroupe-feed-research-lab`
 - Video discovery: YouTube tutorial

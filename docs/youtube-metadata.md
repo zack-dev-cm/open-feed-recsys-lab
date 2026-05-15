@@ -21,7 +21,7 @@ GitHub:
 https://github.com/zack-dev-cm/open-feed-recsys-lab
 
 Tutorial:
-https://zack-dev-cm.github.io/open-feed-recsys-lab/
+https://zack-dev-cm.github.io/open-feed-recsys-lab/tutorial.html
 
 GitHub release:
 https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.2.1

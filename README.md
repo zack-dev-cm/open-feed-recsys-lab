@@ -31,7 +31,7 @@ The repo includes three Codex/ClawHub skills:
 - `share_card.svg`: visual summary card
 - `tinytroupe_experiment_plan.md`: bridge plan for a later TinyTroupe run
 
-Canonical tutorial: https://zack-dev-cm.github.io/open-feed-recsys-lab/
+Canonical tutorial: https://zack-dev-cm.github.io/open-feed-recsys-lab/tutorial.html
 
 ## Why
 

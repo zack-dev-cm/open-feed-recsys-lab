@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Verify, Audit, and Pretest X Algorithm Claims Locally</title>
+  <meta name="description" content="Step-by-step tutorial for using Open Feed Recsys Lab to verify xai-org/x-algorithm, audit viral X algorithm claims, and pretest draft posts with bounded synthetic audience research.">
+  <meta name="keywords" content="xai-org x-algorithm tutorial, run X algorithm locally, X For You algorithm, Phoenix recommender, X algorithm claim audit, TinyTroupe feed research, synthetic audience research">
+  <link rel="canonical" href="https://zack-dev-cm.github.io/open-feed-recsys-lab/tutorial.html">
+  <meta property="og:title" content="How to Verify, Audit, and Pretest X Algorithm Claims Locally">
+  <meta property="og:description" content="A practical tutorial for reproducibility reports, source-backed claim audits, and bounded synthetic draft research around xai-org/x-algorithm.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zack-dev-cm.github.io/open-feed-recsys-lab/tutorial.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --ink: #152026;
+      --muted: #52656e;
+      --line: #d7e0e4;
+      --bg: #f7f9f8;
+      --panel: #ffffff;
+      --accent: #176b5b;
+      --code: #0f2d26;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.62;
+    }
+    header, main, footer { width: min(900px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 44px 0 20px; }
+    .eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: .08em; }
+    h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.04; margin: 12px 0 16px; letter-spacing: 0; }
+    h2 { font-size: 25px; margin: 34px 0 12px; letter-spacing: 0; }
+    p { margin: 0 0 14px; }
+    a { color: var(--accent); }
+    .lead { font-size: 19px; color: var(--muted); max-width: 760px; }
+    .nav { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 0 12px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    article {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(18px, 3vw, 30px);
+      margin: 16px 0;
+    }
+    pre {
+      overflow-x: auto;
+      background: #0f171a;
+      color: #e9f5f2;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--code); }
+    pre code { color: inherit; }
+    ul { padding-left: 22px; }
+    .callout {
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      background: #eef6f3;
+      border-radius: 6px;
+      margin: 18px 0;
+    }
+    footer { color: var(--muted); padding: 22px 0 48px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Open Feed Recsys Lab tutorial</div>
+    <h1>How to verify, audit, and pretest X algorithm claims locally.</h1>
+    <p class="lead">Use this tutorial to turn <code>xai-org/x-algorithm</code> into a reproducible local report, audit viral algorithm claims against public source, and compare draft posts with bounded synthetic audience research.</p>
+    <div class="nav">
+      <a href="./">Overview</a>
+      <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab">GitHub</a>
+      <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.2.1">Release v1.2.1</a>
+    </div>
+  </header>
+  <main>
+    <article>
+      <h2>The problem</h2>
+      <p>The open X For You algorithm repository has two different surfaces: source code you can inspect immediately, and Phoenix model artifacts that require a large Git LFS archive before inference can run.</p>
+      <p>That difference matters. If you only clone the repo, you can map the architecture and inspect the source. You cannot honestly claim you ran Phoenix unless the artifacts are downloaded and extracted.</p>
+
+      <h2>What the lab produces</h2>
+      <p><code>open-feed-recsys-lab</code> generates four reproducibility artifacts:</p>
+      <ul>
+        <li><code>run_report.md</code>: commit, repo status, component inventory, warnings, and optional command outputs.</li>
+        <li><code>artifact_check.md</code>: LFS pointer, expected Phoenix files, and missing artifacts.</li>
+        <li><code>architecture_map.html</code>: shareable map of Home Mixer, Phoenix, Thunder, Grox, and Candidate Pipeline.</li>
+        <li><code>manifest.json</code>: machine-readable facts for follow-up tooling.</li>
+      </ul>
+      <p>The companion claim auditor generates source-backed verdicts for viral claims. The TinyTroupe-inspired feed research skill compares draft posts with synthetic personas. Those outputs are useful for public explanation and drafting, but they are not live X ranking predictions.</p>
+
+      <h2>Install</h2>
+      <pre><code>git clone https://github.com/zack-dev-cm/open-feed-recsys-lab
+cd open-feed-recsys-lab</code></pre>
+
+      <p>Run the report generator:</p>
+      <pre><code>python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py</code></pre>
+      <p>By default, the script clones <code>xai-org/x-algorithm</code> with Git LFS smudge disabled. That keeps the first report lightweight and avoids pulling multi-GB artifacts unexpectedly.</p>
+
+      <h2>Use an existing checkout</h2>
+      <pre><code>python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py \
+  --repo-dir /path/to/x-algorithm \
+  --output-dir /tmp/open-feed-recsys-lab-report</code></pre>
+
+      <p>Pin a specific commit or ref:</p>
+      <pre><code>python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py \
+  --ref e414c17 \
+  --output-dir /tmp/open-feed-recsys-lab-report</code></pre>
+
+      <h2>Read the result</h2>
+      <p>Open <code>run_report.md</code> first. The report tells you which commit was inspected, whether the working tree was clean, whether key components are present, whether Phoenix artifacts are complete, and whether documentation and extracted configs agree.</p>
+      <p>Then open <code>artifact_check.md</code>. For a lightweight clone, expect the Phoenix zip to be a Git LFS pointer. That means source inspection is valid, but Phoenix execution is not ready yet.</p>
+      <p>Finally, open <code>architecture_map.html</code>. This is the shareable artifact: it maps the request flow across Home Mixer, Thunder, Phoenix, ads, prompts, who-to-follow, hydration, filtering, scoring, and the ranked feed response.</p>
+
+      <h2>Run Phoenix only when artifacts exist</h2>
+      <pre><code>python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py \
+  --repo-dir /path/to/x-algorithm \
+  --artifacts-dir /path/to/oss-phoenix-artifacts \
+  --run-phoenix</code></pre>
+      <p>The expected extracted files include retrieval and ranker configs, model params, embedding tables, the sports corpus, and the example sequence.</p>
+
+      <h2>Audit a viral claim</h2>
+      <p>Use the claim auditor when a post says something like "replies are worth 150x a like" or "Premium gets a visibility boost":</p>
+      <pre><code>python3 skill/x-algo-claim-auditor/scripts/x_algo_claim_auditor.py \
+  --repo-dir /path/to/x-algorithm \
+  --claim "Replies are worth 150x a like in the new X algorithm" \
+  --output-dir /tmp/x-algo-claim-audit</code></pre>
+      <p>The output is a verdict, evidence ledger, and share card. It should say <code>misleading</code> when the public source supports engagement probabilities or weights in general but not the exact viral multiplier.</p>
+
+      <h2>Pretest draft posts</h2>
+      <p>Use the TinyTroupe-inspired research skill when you have multiple drafts and want a bounded synthetic audience read:</p>
+      <pre><code>python3 skill/tinytroupe-feed-research-lab/scripts/tinytroupe_feed_research_lab.py \
+  --audience "AI builders and creator-operators interested in source-backed algorithm research" \
+  --draft "I audited a viral X algorithm claim against public source. Verdict: misleading. What should I check next?" \
+  --draft "Replies are king. Here is what the public repo actually proves." \
+  --output-dir /tmp/tinytroupe-feed-research</code></pre>
+      <p>Read <code>feed_research_report.md</code> for the best synthetic conversation draft, objections, and rewrite suggestions.</p>
+
+      <div class="callout">
+        <strong>Boundary:</strong> This is synthetic audience research. It does not predict reach, rank, virality, revenue, or live X production behavior.
+      </div>
+
+      <h2>What this does not prove</h2>
+      <p>This does not prove that the public repo fully matches live production behavior. It also does not predict reach, virality, creator growth, or account performance.</p>
+      <p>It proves something narrower and more useful: what source was inspected, what artifacts are present, whether the local Phoenix run is ready, where public docs and configs agree or disagree, whether a viral claim is supported by public files, and how synthetic personas react to a draft under explicit boundaries.</p>
+
+      <h2>Share prompt</h2>
+      <p>Use this only after generating your own report:</p>
+      <pre><code>I verified the open X For You algorithm repo locally at commit &lt;sha&gt;. Here is the report: source inspected, Phoenix artifact readiness checked, and architecture mapped.</code></pre>
+
+      <h2>Install the skills from ClawHub</h2>
+      <pre><code>clawhub install open-feed-recsys-lab
+clawhub install x-algo-claim-auditor
+clawhub install tinytroupe-feed-research-lab</code></pre>
+    </article>
+  </main>
+  <footer>
+    <p>Canonical tutorial source: <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab">open-feed-recsys-lab on GitHub</a>. Medium and Notion syndication copy is kept in <code>docs/tutorial-medium-notion.md</code>.</p>
+  </footer>
+</body>
+</html>
