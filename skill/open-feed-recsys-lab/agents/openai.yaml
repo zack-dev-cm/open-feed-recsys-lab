@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Feed Recsys Lab"
+  short_description: "Generate commit-pinned feed recsys run reports."
+  default_prompt: "Analyze xai-org/x-algorithm and generate a commit-pinned local run report, artifact check, and architecture map."
