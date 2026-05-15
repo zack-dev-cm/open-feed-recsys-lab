@@ -18,6 +18,9 @@ It generates:
 GitHub:
 https://github.com/zack-dev-cm/open-feed-recsys-lab
 
+Tutorial:
+https://zack-dev-cm.github.io/open-feed-recsys-lab/
+
 GitHub release:
 https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.0.1
 

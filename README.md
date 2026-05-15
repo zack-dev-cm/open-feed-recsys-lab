@@ -9,6 +9,8 @@ The included Codex/ClawHub skill produces four local artifacts:
 - `architecture_map.html`: standalone architecture map for sharing or review
 - `manifest.json`: machine-readable report data
 
+Canonical tutorial: https://zack-dev-cm.github.io/open-feed-recsys-lab/
+
 ## Why
 
 The X For You algorithm repo is high-interest, but a lightweight clone does not automatically mean the Phoenix demo can run. The lab makes that explicit: it verifies source state, flags missing extracted LFS artifacts, and catches documentation/config mismatches before anyone overclaims what was reproduced.
@@ -56,8 +58,6 @@ cp -R skill/open-feed-recsys-lab "${CODEX_HOME:-$HOME/.codex}/skills/open-feed-r
 ```
 
 ## Install From ClawHub
-
-After publication:
 
 ```bash
 clawhub install open-feed-recsys-lab
