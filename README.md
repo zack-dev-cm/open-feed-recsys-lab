@@ -77,4 +77,4 @@ python3 -m py_compile skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py
 
 ## License
 
-MIT
+MIT-0

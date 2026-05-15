@@ -1,7 +1,7 @@
 ---
 name: open-feed-recsys-lab
 description: Generate reproducible local reports for open feed recommendation repositories, especially xai-org/x-algorithm. Use when the user asks to analyze, verify, run, map, explain, package, monitor, or build Codex/Claude/OpenClaw workflows around the X For You algorithm, Phoenix retrieval/ranking, Home Mixer, Thunder, Grox, ads blending, recommender-system pipeline scaffolds, or shareable architecture/run artifacts.
-license: MIT
+license: MIT-0
 metadata: {"openclaw":{"homepage":"https://github.com/zack-dev-cm/open-feed-recsys-lab","skillKey":"open-feed-recsys-lab","requires":{"anyBins":["python3","python"],"anyTools":["git"]}}}
 ---
 

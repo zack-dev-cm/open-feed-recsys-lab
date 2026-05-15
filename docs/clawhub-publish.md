@@ -4,7 +4,7 @@
 
 - slug: `open-feed-recsys-lab`
 - name: `Open Feed Recsys Lab`
-- version: `1.0.0`
+- version: `1.0.1`
 - tags: `recsys,x-algorithm,phoenix,codex`
 - source path: `skill/open-feed-recsys-lab`
 
@@ -14,9 +14,9 @@
 clawhub publish skill/open-feed-recsys-lab \
   --slug open-feed-recsys-lab \
   --name "Open Feed Recsys Lab" \
-  --version 1.0.0 \
+  --version 1.0.1 \
   --tags "recsys,x-algorithm,phoenix,codex" \
-  --changelog "Initial public release for commit-pinned reports, Phoenix artifact checks, documentation mismatch detection, and architecture maps for open feed recommendation repos."
+  --changelog "Align public license metadata with ClawHub MIT-0 registry display after the initial release."
 ```
 
 ## Expected Static Review Notes
