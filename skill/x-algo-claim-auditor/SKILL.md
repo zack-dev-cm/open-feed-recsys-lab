@@ -1,76 +1,44 @@
 ---
 name: x-algo-claim-auditor
-description: Audit public claims about xai-org/x-algorithm, the X For You algorithm, Phoenix, Grox, Home Mixer, engagement weights, filters, ads blending, or viral algorithm narratives. Use when Codex needs to turn a pasted claim, screenshot text, thread summary, or public post claim into a source-backed verdict with file citations, evidence ledger, and shareable claim card while avoiding reach-prediction or private-account claims. If the user asks to compare draft posts or simulate audience reaction before publishing, use tinytroupe-feed-research-lab instead.
-license: MIT-0
-metadata: {"openclaw":{"homepage":"https://github.com/zack-dev-cm/open-feed-recsys-lab","skillKey":"x-algo-claim-auditor","requires":{"anyBins":["python3","python"],"anyTools":["git"]}}}
+description: Review public claims about xai-org/x-algorithm, the X For You algorithm, Phoenix, Grox, Home Mixer, engagement weights, filters, ads blending, or viral algorithm narratives. Use when a user needs a cautious source-backed verdict without private account analysis, reach prediction, account operation, or script execution.
 ---
 
 # X Algo Claim Auditor
 
-Use this skill to audit viral or product claims against the public `xai-org/x-algorithm` source. The goal is a defensible proof artifact, not growth advice.
+Use this skill to review public claims against public X algorithm source evidence. The goal is a defensible verdict, not growth advice or live-platform prediction.
 
-## Core Workflow
+## Review Workflow
 
-1. Extract the exact claim from the user, screenshot OCR, public post, or pasted text.
-2. Run `scripts/x_algo_claim_auditor.py` with the claim and a local or cloned `x-algorithm` checkout.
-3. Read `claim_audit.md` and `claim_audit.json`.
-4. Answer with the verdict, strongest evidence, and boundary: what the public repo proves and what it does not prove.
-5. If the user wants a share artifact, use `share_card.md` or `share_card.svg`.
-
-## Quick Start
-
-```bash
-SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills/x-algo-claim-auditor"
-python3 "$SKILL_DIR/scripts/x_algo_claim_auditor.py" \
-  --claim "Replies are worth 150x a like in the new X algorithm" \
-  --output-dir /tmp/x-algo-claim-audit
-```
-
-Use an existing checkout:
-
-```bash
-python3 "$SKILL_DIR/scripts/x_algo_claim_auditor.py" \
-  --claim-file /tmp/claim.txt \
-  --repo-dir /path/to/x-algorithm \
-  --output-dir /tmp/x-algo-claim-audit
-```
-
-The script writes:
-
-- `claim_audit.md`: human-readable verdict and evidence.
-- `claim_audit.json`: machine-readable ledger.
-- `share_card.md`: short public-safe card.
-- `share_card.svg`: image-style claim card for screenshots.
+1. Extract the exact claim from the user, screenshot text, public post, or pasted text.
+2. Identify which public repository, commit, file, or public citation is being used as evidence.
+3. Classify the claim as `supported`, `misleading`, `unsupported`, or `not_public_repo`.
+4. Cite the strongest public evidence and state what the evidence does not prove.
+5. Flag overclaims about exact multipliers, production equivalence, private thresholds, account treatment, shadowbans, or draft-post reach prediction.
+6. If the user wants a share card or public summary, keep it cautious and avoid implying that the public repo fully predicts live platform behavior.
 
 ## Verdict Meanings
 
-- `supported`: the public repo directly supports the narrow claim.
-- `misleading`: the repo supports a weaker statement, but the claim overstates precision, production equivalence, or causality.
+- `supported`: public source directly supports the narrow claim.
+- `misleading`: public source supports a weaker statement, but the claim overstates precision, production equivalence, or causality.
 - `unsupported`: no public source evidence was found for the claim.
-- `not_public_repo`: the claim depends on production configs, private thresholds, account state, or live ranking behavior absent from the repo.
+- `not_public_repo`: the claim depends on production configs, private thresholds, account state, or live ranking behavior absent from public source.
 
 ## Boundaries
 
-Read `references/claim-boundaries.md` when the user asks about reach prediction, shadowbans, hidden boosts, private configs, or account-specific feed behavior.
+- Do not claim that the public repo is the full live production system.
+- Do not score draft posts, promise reach, or diagnose account-specific boosting or suppression.
+- Do not request private account data, authenticated pages, non-public analytics, or account access.
+- Do not upload, release, schedule, or operate authenticated sessions as part of this review.
+- Do not execute local scripts or clone repositories unless the user separately asks for engineering work.
 
-Never claim:
+## Output Shape
 
-- the public repo is the full live production system,
-- a draft post can be scored exactly before publishing,
-- a user is shadowbanned or boosted,
-- exact engagement multipliers exist unless public source lines show them,
-- private X account analytics, feed state, cookies, or DMs should be scraped.
+Return:
 
-## Agent-Specific Use
+- `Claim`: the exact claim being reviewed.
+- `Verdict`: `supported`, `misleading`, `unsupported`, or `not_public_repo`.
+- `Evidence`: source-backed points, with paths or public citations when available.
+- `Boundary`: what the evidence does not prove.
+- `Public wording`: a safer public-safe rewrite when useful.
 
-For Codex: prefer local source inspection and the deterministic script. Cite file paths and line numbers from the ledger.
-
-For Claude: use the ledger to write longer explanations or threads, but keep claims tied to public source evidence.
-
-For OpenClaw: only use browser automation for public pages, screenshots, or user-approved publishing of generated cards. Pause for login, CAPTCHA, passkey, or private account pages.
-
-## Companion Skills
-
-Use `open-feed-recsys-lab` when the task is broader repository verification, Phoenix artifact readiness, or architecture mapping.
-
-Use `tinytroupe-feed-research-lab` when the task is draft comparison, synthetic audience reactions, or post pretesting. Do not convert those results into claim verdicts or reach predictions.
+Use `open-feed-recsys-lab` when the task is broader repository verification, Phoenix artifact readiness, or architecture mapping. Use `tinytroupe-feed-research-lab` when the task is draft comparison or synthetic audience reaction review.
