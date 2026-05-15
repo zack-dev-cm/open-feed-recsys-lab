@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Feed Recsys Lab: Verify and Audit X For You Algorithm Claims</title>
-  <meta name="description" content="Generate commit-pinned reproducibility reports and source-backed claim audits for xai-org/x-algorithm. Check Phoenix artifacts, Git LFS readiness, documentation drift, and viral X algorithm claims.">
-  <meta name="keywords" content="x-algorithm, X For You algorithm, Phoenix recommender, feed recommendation system, recsys, Codex skill, ClawHub skill, Git LFS, reproducibility report, X algorithm claim audit">
+  <title>Open Feed Recsys Lab: Verify, Audit, and Pretest X Algorithm Claims</title>
+  <meta name="description" content="Generate commit-pinned reproducibility reports, source-backed claim audits, and bounded synthetic audience research for xai-org/x-algorithm. Check Phoenix artifacts, viral X algorithm claims, and draft-post reactions.">
+  <meta name="keywords" content="x-algorithm, X For You algorithm, Phoenix recommender, feed recommendation system, recsys, Codex skill, ClawHub skill, Git LFS, reproducibility report, X algorithm claim audit, TinyTroupe, synthetic audience research">
   <link rel="canonical" href="https://zack-dev-cm.github.io/open-feed-recsys-lab/">
   <meta property="og:title" content="Open Feed Recsys Lab">
-  <meta property="og:description" content="Verify xai-org/x-algorithm locally with commit-pinned reports, Phoenix artifact checks, architecture maps, and source-backed claim audits.">
+  <meta property="og:description" content="Verify xai-org/x-algorithm locally with commit-pinned reports, Phoenix artifact checks, source-backed claim audits, and bounded draft-post research.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zack-dev-cm.github.io/open-feed-recsys-lab/">
   <meta name="twitter:card" content="summary_large_image">
@@ -81,21 +81,22 @@
   <header>
     <div class="eyebrow">Recsys reproducibility for Codex and ClawHub</div>
     <h1>Verify the open X For You algorithm repo locally.</h1>
-    <p class="lead">Open Feed Recsys Lab turns <code>xai-org/x-algorithm</code> into commit-pinned reports and source-backed claim audits: source inventory, Phoenix Git LFS artifact readiness, documentation drift checks, viral claim verdicts, and shareable proof cards.</p>
+    <p class="lead">Open Feed Recsys Lab turns <code>xai-org/x-algorithm</code> into commit-pinned reports, source-backed claim audits, and synthetic audience pretests: source inventory, Phoenix Git LFS readiness, documentation drift checks, viral claim verdicts, draft-post reactions, and shareable proof cards.</p>
     <div class="actions">
       <a class="button" href="https://github.com/zack-dev-cm/open-feed-recsys-lab">View on GitHub</a>
-      <a class="button secondary" href="https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.0.1">Latest release</a>
+      <a class="button secondary" href="https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.2.0">Latest release</a>
     </div>
   </header>
   <main>
     <section>
       <h2>Why this exists</h2>
-      <p>The public X algorithm repo is useful, but a lightweight clone is not the same thing as a complete Phoenix model run or a live For You feed clone. This lab makes that boundary explicit before anyone writes an overconfident thread, tutorial, or claim about engagement weights.</p>
+      <p>The public X algorithm repo is useful, but a lightweight clone is not the same thing as a complete Phoenix model run, a live For You feed clone, or a reach predictor. This lab makes that boundary explicit before anyone writes an overconfident thread, tutorial, claim, or draft-post recommendation.</p>
       <div class="grid">
         <div class="metric"><strong>Source</strong>Commit-pinned checkout and component inventory.</div>
         <div class="metric"><strong>Artifacts</strong>Checks for extracted Phoenix retrieval/ranker files.</div>
         <div class="metric"><strong>Docs</strong>Detects README and config mismatches.</div>
         <div class="metric"><strong>Claims</strong>Verdicts with file citations and share cards.</div>
+        <div class="metric"><strong>Drafts</strong>Synthetic audience reactions with explicit prediction boundaries.</div>
       </div>
     </section>
     <section>
@@ -112,6 +113,15 @@ python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py</code></pre>
   --claim "Replies are worth 150x a like in the new X algorithm" \
   --output-dir /tmp/x-algo-claim-audit</code></pre>
       <p>The claim auditor returns <code>supported</code>, <code>misleading</code>, <code>unsupported</code>, or <code>not_public_repo</code>, then writes a Markdown report, JSON ledger, and SVG share card.</p>
+    </section>
+    <section>
+      <h2>Pretest draft posts</h2>
+      <pre><code>python3 skill/tinytroupe-feed-research-lab/scripts/tinytroupe_feed_research_lab.py \
+  --audience "AI builders and creator-operators interested in source-backed algorithm research" \
+  --draft "I audited a viral X algorithm claim against public source. Verdict: misleading. What should I check next?" \
+  --draft "Replies are king. Here is what the public repo actually proves." \
+  --output-dir /tmp/tinytroupe-feed-research</code></pre>
+      <p>The TinyTroupe-inspired lab compares drafts with deterministic synthetic personas and writes a report, CSV reaction table, JSON ledger, share card, and optional TinyTroupe experiment plan. It is qualitative research, not reach prediction.</p>
     </section>
     <section>
       <h2>Use an existing checkout</h2>
@@ -138,11 +148,11 @@ python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py</code></pre>
   --repo-dir /path/to/x-algorithm \
   --artifacts-dir /path/to/oss-phoenix-artifacts \
   --run-phoenix</code></pre>
-      <p>This is a reproducibility tool, not a growth hack. It does not promise reach, ranking, virality, revenue, or live-platform equivalence.</p>
+      <p>This is a reproducibility and research tool, not a growth hack. It does not promise reach, ranking, virality, revenue, or live-platform equivalence.</p>
     </section>
   </main>
   <footer>
-    <p>Open Feed Recsys Lab is published under MIT-0. Canonical source: <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab">GitHub</a>. Skill slugs: <code>open-feed-recsys-lab</code>, <code>x-algo-claim-auditor</code>.</p>
+    <p>Open Feed Recsys Lab is published under MIT-0. Canonical source: <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab">GitHub</a>. Skill slugs: <code>open-feed-recsys-lab</code>, <code>x-algo-claim-auditor</code>, <code>tinytroupe-feed-research-lab</code>.</p>
   </footer>
 </body>
 </html>

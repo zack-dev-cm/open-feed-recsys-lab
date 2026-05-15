@@ -3,8 +3,10 @@ __pycache__/
 .DS_Store
 .open-feed-recsys-lab/
 .x-algo-claim-auditor/
+.tinytroupe-feed-research-lab/
 open-feed-recsys-lab-report/
 x-algo-claim-audit/
+tinytroupe-feed-research/
 .pytest_cache/
 .ruff_cache/
 out/

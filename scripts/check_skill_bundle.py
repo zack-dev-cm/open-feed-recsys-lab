@@ -21,6 +21,16 @@ SKILLS = {
         "script": ROOT / "skill" / "x-algo-claim-auditor" / "scripts" / "x_algo_claim_auditor.py",
         "required": ["SKILL.md", "agents/openai.yaml", "references/claim-boundaries.md", "scripts/x_algo_claim_auditor.py"],
     },
+    "tinytroupe-feed-research-lab": {
+        "path": ROOT / "skill" / "tinytroupe-feed-research-lab",
+        "script": ROOT / "skill" / "tinytroupe-feed-research-lab" / "scripts" / "tinytroupe_feed_research_lab.py",
+        "required": [
+            "SKILL.md",
+            "agents/openai.yaml",
+            "references/research-boundaries.md",
+            "scripts/tinytroupe_feed_research_lab.py",
+        ],
+    },
 }
 
 
