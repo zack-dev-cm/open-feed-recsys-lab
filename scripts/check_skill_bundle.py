@@ -83,11 +83,9 @@ def check_frontmatter() -> None:
         if end == -1:
             fail(f"{skill_md.relative_to(ROOT)} frontmatter is not closed")
         frontmatter = text[4:end]
-        for field in ["name:", "description:", "license:", "metadata:"]:
+        for field in ["name:", "description:"]:
             if field not in frontmatter:
                 fail(f"{skill_md.relative_to(ROOT)} frontmatter missing {field}")
-        if f'"skillKey":"{name}"' not in frontmatter:
-            fail(f"metadata.openclaw.skillKey must be {name}")
 
 
 def check_secrets() -> None:

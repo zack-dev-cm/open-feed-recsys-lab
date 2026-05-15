@@ -1,60 +1,26 @@
 ---
 name: open-feed-recsys-lab
-description: Generate reproducible local reports for open feed recommendation repositories, especially xai-org/x-algorithm. Use when the user asks to analyze, verify, run, map, explain, package, monitor, or build Codex/Claude/OpenClaw workflows around the X For You algorithm, Phoenix retrieval/ranking, Home Mixer, Thunder, Grox, ads blending, recommender-system pipeline scaffolds, or shareable architecture/run artifacts.
-license: MIT-0
-metadata: {"openclaw":{"homepage":"https://github.com/zack-dev-cm/open-feed-recsys-lab","skillKey":"open-feed-recsys-lab","requires":{"anyBins":["python3","python"],"anyTools":["git"]}}}
+description: Review open feed recommendation repositories with source-backed evidence, artifact-readiness checks, and cautious architecture summaries. Use when a user asks for a grounded read of xai-org/x-algorithm, Phoenix, Home Mixer, Thunder, Grox, candidate pipelines, ads blending, or public recommender-system claims.
 ---
 
 # Open Feed Recsys Lab
 
-Use this skill to turn a high-attention feed recommendation repo into a concrete local artifact: source checkout, artifact readiness check, architecture map, and reproducibility report.
+Use this skill to review public feed recommendation repositories and separate what the source supports from what remains unproven.
 
 Default target: `https://github.com/xai-org/x-algorithm`.
 
-## Core Workflow
+## Review Workflow
 
-1. Generate the local lab report with `scripts/open_feed_recsys_lab.py`.
-2. Inspect the generated `run_report.md`, `artifact_check.md`, and `architecture_map.html`.
-3. If Phoenix artifacts are missing, explain the LFS blocker and do not pretend the model was run.
-4. If the user asks for a launch/product angle, read `references/product-gate.md` and keep the free MVP narrow.
-5. If the user asks to adapt the architecture, use the report as the source of truth and scaffold only the requested slice.
-6. If the user asks whether a viral X algorithm claim is true, use the companion `x-algo-claim-auditor` skill instead of turning this report skill into a generic explainer.
+1. Confirm the target repository, commit, public link, or user-provided file set.
+2. Build an evidence ledger with repository/ref, files inspected, supported claims, weak claims, and open questions.
+3. Separate source inspection from runnable-model proof. If Phoenix artifacts are missing, say execution is not verified.
+4. Map the visible architecture: Home Mixer, Phoenix retrieval/ranking, Thunder, Grox, ads blending, and candidate pipelines when present.
+5. Treat public algorithm claims as hypotheses. Mark each claim `supported`, `partly_supported`, `unsupported`, or `not_public_repo`.
+6. Frame shareable output around reproducibility and evidence. Do not present the public source as a reach predictor or full live-platform clone.
 
-## Quick Start
+## Phoenix Artifact Readiness
 
-Run from the user's chosen workspace:
-
-```bash
-SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills/open-feed-recsys-lab"
-python3 "$SKILL_DIR/scripts/open_feed_recsys_lab.py"
-```
-
-This creates:
-
-- `open-feed-recsys-lab-report/run_report.md`
-- `open-feed-recsys-lab-report/artifact_check.md`
-- `open-feed-recsys-lab-report/architecture_map.html`
-- `open-feed-recsys-lab-report/manifest.json`
-
-The script clones with `GIT_LFS_SKIP_SMUDGE=1` by default through the environment, so the report can be produced without pulling multi-GB model artifacts.
-
-## Existing Clone
-
-Use an existing checkout when available:
-
-```bash
-SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills/open-feed-recsys-lab"
-python3 "$SKILL_DIR/scripts/open_feed_recsys_lab.py" \
-  --repo-dir /path/to/x-algorithm \
-  --output-dir /path/to/report
-```
-
-Use `--force-clone` only when it is safe to delete and recreate the script-managed clone directory.
-If `--repo-dir` points to an existing checkout, the script reports the current checkout and warns when it does not obviously match `--ref`; it does not silently reset user work.
-
-## Phoenix Execution
-
-Only run Phoenix after extracted artifacts are present. The expected extracted directory is:
+Only treat Phoenix execution as verified after the official artifacts are present and the user has supplied a local run result. The expected extracted directory is:
 
 ```text
 phoenix/artifacts/oss-phoenix-artifacts/
@@ -71,52 +37,29 @@ Expected files include:
 - `sports_corpus.npz`
 - `example_sequence.json`
 
-When artifacts are ready:
-
-```bash
-SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills/open-feed-recsys-lab"
-python3 "$SKILL_DIR/scripts/open_feed_recsys_lab.py" \
-  --repo-dir /path/to/x-algorithm \
-  --artifacts-dir /path/to/oss-phoenix-artifacts \
-  --run-phoenix
-```
-
-Use `--run-pytest` only when `uv` and dependencies are available.
-
-## Report Interpretation
-
-Treat the generated reports as evidence, not marketing copy.
-
-- `run_report.md`: repo metadata, component inventory, doc checks, command outputs.
-- `artifact_check.md`: Git LFS pointer size, extracted artifact completeness, doc/config mismatches.
-- `architecture_map.html`: shareable standalone map of Home Mixer, Phoenix, Thunder, Grox, and Candidate Pipeline.
-- `manifest.json`: machine-readable source for follow-up tooling.
-
 If the report says Phoenix is not run-ready, state that source inspection succeeded but execution is blocked by missing extracted LFS artifacts.
 
-## Agent-Specific Use
+## Boundaries
 
-For Codex:
+- Use public source or user-provided local files only.
+- Do not request or inspect private user data, authenticated account pages, or non-public analytics.
+- Do not promise reach, ranking, virality, revenue, or live-platform equivalence.
+- Do not claim that public source contains every production weight, threshold, model version, or serving rule.
+- Do not execute repository code or delete local files as part of a review unless the user separately asks for that engineering work.
 
-- Prefer local source inspection, patches, and reproducible report generation.
-- Use the generated manifest to drive follow-up scripts or scaffolds.
+## Output Shape
 
-For Claude or Claude Code:
+Return a concise review with:
 
-- Provide the report files as context for long-form architecture explanations.
-- Keep claims tied to file paths, commit IDs, and artifact readiness.
+- `Target`: repo, ref, and source date when known.
+- `Supported`: claims backed by public source.
+- `Blocked`: missing artifacts, missing configs, or live-platform gaps.
+- `Architecture`: short component map.
+- `Risks`: overclaims, ambiguous evidence, or unsafe product positioning.
+- `Next check`: the smallest concrete verification step.
 
-For OpenClaw:
-
-- Use browser automation only for public pages, public screenshots, or user-approved publishing of generated artifacts.
-- Do not scrape private X feeds, private analytics, DMs, cookies, or account-only pages.
-
-## Product Boundary
-
-Do not position this as an "algorithm growth hack" or a way to guarantee reach. The first shareable win is reproducibility:
+The preferred public-safe framing is:
 
 ```text
 I verified the open X For You algorithm locally at commit <sha>; here is the report.
 ```
-
-When evaluating whether to expand the product, read `references/product-gate.md`.
