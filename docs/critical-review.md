@@ -18,6 +18,7 @@ Do not expand any skill into creator-growth prediction, shadowban diagnosis, acc
 - Claim outputs use bounded verdicts: `supported`, `misleading`, `unsupported`, and `not_public_repo`.
 - The default high-risk claim, "replies are worth 150x a like," is handled as `misleading`, not as a growth promise.
 - The TinyTroupe-inspired skill captures the real demand behind "test my post before publishing" while labeling results as qualitative synthetic research.
+- Companion routing is explicit: repo verification, claim auditing, and draft pretesting now go to different skills.
 - All skills avoid private X data, cookies, account analytics, DMs, and live feed scraping.
 
 ## Remaining Weaknesses

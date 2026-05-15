@@ -1,6 +1,6 @@
 [project]
 name = "open-feed-recsys-lab"
-version = "1.2.0"
+version = "1.2.1"
 description = "Commit-pinned reproducibility reports, source-backed claim audits, and bounded synthetic feed research for open recommendation repos."
 requires-python = ">=3.10"
 license = { text = "MIT-0" }

@@ -24,7 +24,7 @@ Tutorial:
 https://zack-dev-cm.github.io/open-feed-recsys-lab/
 
 GitHub release:
-https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.2.0
+https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.2.1
 
 ClawHub install:
 ```bash

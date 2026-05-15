@@ -1,6 +1,6 @@
 ---
 name: x-algo-claim-auditor
-description: Audit public claims about xai-org/x-algorithm, the X For You algorithm, Phoenix, Grox, Home Mixer, engagement weights, filters, ads blending, or "test my post before publishing" narratives. Use when Codex needs to turn a pasted claim, screenshot text, thread summary, or public post claim into a source-backed verdict with file citations, evidence ledger, and shareable claim card while avoiding reach-prediction or private-account claims.
+description: Audit public claims about xai-org/x-algorithm, the X For You algorithm, Phoenix, Grox, Home Mixer, engagement weights, filters, ads blending, or viral algorithm narratives. Use when Codex needs to turn a pasted claim, screenshot text, thread summary, or public post claim into a source-backed verdict with file citations, evidence ledger, and shareable claim card while avoiding reach-prediction or private-account claims. If the user asks to compare draft posts or simulate audience reaction before publishing, use tinytroupe-feed-research-lab instead.
 license: MIT-0
 metadata: {"openclaw":{"homepage":"https://github.com/zack-dev-cm/open-feed-recsys-lab","skillKey":"x-algo-claim-auditor","requires":{"anyBins":["python3","python"],"anyTools":["git"]}}}
 ---
@@ -68,3 +68,9 @@ For Codex: prefer local source inspection and the deterministic script. Cite fil
 For Claude: use the ledger to write longer explanations or threads, but keep claims tied to public source evidence.
 
 For OpenClaw: only use browser automation for public pages, screenshots, or user-approved publishing of generated cards. Pause for login, CAPTCHA, passkey, or private account pages.
+
+## Companion Skills
+
+Use `open-feed-recsys-lab` when the task is broader repository verification, Phoenix artifact readiness, or architecture mapping.
+
+Use `tinytroupe-feed-research-lab` when the task is draft comparison, synthetic audience reactions, or post pretesting. Do not convert those results into claim verdicts or reach predictions.

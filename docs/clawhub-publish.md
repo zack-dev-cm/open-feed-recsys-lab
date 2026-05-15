@@ -4,8 +4,8 @@
 
 | Skill | Version | Source path | Tags |
 | --- | --- | --- | --- |
-| `open-feed-recsys-lab` | `1.0.2` | `skill/open-feed-recsys-lab` | `recsys,x-algorithm,phoenix,codex` |
-| `x-algo-claim-auditor` | `1.0.0` | `skill/x-algo-claim-auditor` | `x-algorithm,claims,recsys,codex` |
+| `open-feed-recsys-lab` | `1.0.4` | `skill/open-feed-recsys-lab` | `recsys,x-algorithm,architecture,review,codex,phoenix` |
+| `x-algo-claim-auditor` | `1.0.1` | `skill/x-algo-claim-auditor` | `x-algorithm,claims,recsys,codex` |
 | `tinytroupe-feed-research-lab` | `1.0.0` | `skill/tinytroupe-feed-research-lab` | `tinytroupe,synthetic-audience,recsys,codex` |
 
 ## Publish Commands
@@ -13,19 +13,19 @@
 ```bash
 clawhub publish /Users/zack/Documents/GitHub/open-feed-recsys-lab/skill/open-feed-recsys-lab \
   --slug open-feed-recsys-lab \
-  --name "Open Feed Recsys Lab" \
-  --version 1.0.2 \
-  --tags "recsys,x-algorithm,phoenix,codex" \
-  --changelog "Add companion claim-auditor routing guidance while preserving the reproducibility report workflow."
+  --name "Open Feed Recsys Reviewer" \
+  --version 1.0.4 \
+  --tags "recsys,x-algorithm,architecture,review,codex,phoenix" \
+  --changelog "Add companion routing for claim audits and TinyTroupe-inspired synthetic draft research."
 ```
 
 ```bash
 clawhub publish /Users/zack/Documents/GitHub/open-feed-recsys-lab/skill/x-algo-claim-auditor \
   --slug x-algo-claim-auditor \
   --name "X Algo Claim Auditor" \
-  --version 1.0.0 \
+  --version 1.0.1 \
   --tags "x-algorithm,claims,recsys,codex" \
-  --changelog "Initial release: audit viral X algorithm claims against public source with verdicts, evidence ledgers, and share cards."
+  --changelog "Clarify that draft-post pretesting should route to tinytroupe-feed-research-lab, not claim auditing."
 ```
 
 ```bash

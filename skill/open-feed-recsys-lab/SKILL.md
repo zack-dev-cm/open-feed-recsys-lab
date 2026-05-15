@@ -63,3 +63,9 @@ The preferred public-safe framing is:
 ```text
 I verified the open X For You algorithm locally at commit <sha>; here is the report.
 ```
+
+## Companion Skills
+
+Use `x-algo-claim-auditor` when the user asks whether a public claim, screenshot text, or viral thread is supported by the source.
+
+Use `tinytroupe-feed-research-lab` when the user asks to compare draft posts, simulate audience reactions, or pretest a post before publishing. Keep that work labeled as synthetic audience research, not source verification or reach prediction.
