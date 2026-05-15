@@ -18,6 +18,7 @@ Default target: `https://github.com/xai-org/x-algorithm`.
 3. If Phoenix artifacts are missing, explain the LFS blocker and do not pretend the model was run.
 4. If the user asks for a launch/product angle, read `references/product-gate.md` and keep the free MVP narrow.
 5. If the user asks to adapt the architecture, use the report as the source of truth and scaffold only the requested slice.
+6. If the user asks whether a viral X algorithm claim is true, use the companion `x-algo-claim-auditor` skill instead of turning this report skill into a generic explainer.
 
 ## Quick Start
 
