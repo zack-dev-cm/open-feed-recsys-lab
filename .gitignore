@@ -5,3 +5,4 @@ __pycache__/
 open-feed-recsys-lab-report/
 .pytest_cache/
 .ruff_cache/
+out/

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zack-dev-cm.github.io/open-feed-recsys-lab/sitemap.xml
