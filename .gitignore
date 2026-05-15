@@ -2,7 +2,9 @@ __pycache__/
 *.pyc
 .DS_Store
 .open-feed-recsys-lab/
+.x-algo-claim-auditor/
 open-feed-recsys-lab-report/
+x-algo-claim-audit/
 .pytest_cache/
 .ruff_cache/
 out/

@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Feed Recsys Lab: Verify the X For You Algorithm Repo Locally</title>
-  <meta name="description" content="Generate commit-pinned reproducibility reports for xai-org/x-algorithm. Check Phoenix artifacts, Git LFS readiness, documentation drift, and architecture maps for open feed recommendation systems.">
-  <meta name="keywords" content="x-algorithm, X For You algorithm, Phoenix recommender, feed recommendation system, recsys, Codex skill, ClawHub skill, Git LFS, reproducibility report">
+  <title>Open Feed Recsys Lab: Verify and Audit X For You Algorithm Claims</title>
+  <meta name="description" content="Generate commit-pinned reproducibility reports and source-backed claim audits for xai-org/x-algorithm. Check Phoenix artifacts, Git LFS readiness, documentation drift, and viral X algorithm claims.">
+  <meta name="keywords" content="x-algorithm, X For You algorithm, Phoenix recommender, feed recommendation system, recsys, Codex skill, ClawHub skill, Git LFS, reproducibility report, X algorithm claim audit">
   <link rel="canonical" href="https://zack-dev-cm.github.io/open-feed-recsys-lab/">
   <meta property="og:title" content="Open Feed Recsys Lab">
-  <meta property="og:description" content="Verify xai-org/x-algorithm locally with commit-pinned reports, Phoenix artifact checks, and architecture maps.">
+  <meta property="og:description" content="Verify xai-org/x-algorithm locally with commit-pinned reports, Phoenix artifact checks, architecture maps, and source-backed claim audits.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zack-dev-cm.github.io/open-feed-recsys-lab/">
   <meta name="twitter:card" content="summary_large_image">
@@ -81,7 +81,7 @@
   <header>
     <div class="eyebrow">Recsys reproducibility for Codex and ClawHub</div>
     <h1>Verify the open X For You algorithm repo locally.</h1>
-    <p class="lead">Open Feed Recsys Lab turns <code>xai-org/x-algorithm</code> into a commit-pinned report: source inventory, Phoenix Git LFS artifact readiness, documentation drift checks, and a shareable architecture map.</p>
+    <p class="lead">Open Feed Recsys Lab turns <code>xai-org/x-algorithm</code> into commit-pinned reports and source-backed claim audits: source inventory, Phoenix Git LFS artifact readiness, documentation drift checks, viral claim verdicts, and shareable proof cards.</p>
     <div class="actions">
       <a class="button" href="https://github.com/zack-dev-cm/open-feed-recsys-lab">View on GitHub</a>
       <a class="button secondary" href="https://github.com/zack-dev-cm/open-feed-recsys-lab/releases/tag/v1.0.1">Latest release</a>
@@ -90,12 +90,12 @@
   <main>
     <section>
       <h2>Why this exists</h2>
-      <p>The public X algorithm repo is useful, but a lightweight clone is not the same thing as a complete Phoenix model run. The Phoenix demo depends on a large Git LFS artifact. This lab makes that boundary explicit before anyone writes an overconfident thread or tutorial.</p>
+      <p>The public X algorithm repo is useful, but a lightweight clone is not the same thing as a complete Phoenix model run or a live For You feed clone. This lab makes that boundary explicit before anyone writes an overconfident thread, tutorial, or claim about engagement weights.</p>
       <div class="grid">
         <div class="metric"><strong>Source</strong>Commit-pinned checkout and component inventory.</div>
         <div class="metric"><strong>Artifacts</strong>Checks for extracted Phoenix retrieval/ranker files.</div>
         <div class="metric"><strong>Docs</strong>Detects README and config mismatches.</div>
-        <div class="metric"><strong>Map</strong>Standalone HTML architecture map.</div>
+        <div class="metric"><strong>Claims</strong>Verdicts with file citations and share cards.</div>
       </div>
     </section>
     <section>
@@ -104,6 +104,14 @@
 cd open-feed-recsys-lab
 python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py</code></pre>
       <p>The script clones <code>xai-org/x-algorithm</code> with Git LFS smudge disabled, so the first report is lightweight and does not silently download multi-GB artifacts.</p>
+    </section>
+    <section>
+      <h2>Audit a viral claim</h2>
+      <pre><code>python3 skill/x-algo-claim-auditor/scripts/x_algo_claim_auditor.py \
+  --repo-dir /path/to/x-algorithm \
+  --claim "Replies are worth 150x a like in the new X algorithm" \
+  --output-dir /tmp/x-algo-claim-audit</code></pre>
+      <p>The claim auditor returns <code>supported</code>, <code>misleading</code>, <code>unsupported</code>, or <code>not_public_repo</code>, then writes a Markdown report, JSON ledger, and SVG share card.</p>
     </section>
     <section>
       <h2>Use an existing checkout</h2>
@@ -134,7 +142,7 @@ python3 skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py</code></pre>
     </section>
   </main>
   <footer>
-    <p>Open Feed Recsys Lab is published under MIT-0. Canonical source: <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab">GitHub</a>. ClawHub slug: <code>open-feed-recsys-lab</code>.</p>
+    <p>Open Feed Recsys Lab is published under MIT-0. Canonical source: <a href="https://github.com/zack-dev-cm/open-feed-recsys-lab">GitHub</a>. Skill slugs: <code>open-feed-recsys-lab</code>, <code>x-algo-claim-auditor</code>.</p>
   </footer>
 </body>
 </html>

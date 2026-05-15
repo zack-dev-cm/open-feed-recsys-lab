@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local public bundle checks for Open Feed Recsys Lab."""
+"""Local public bundle checks for Open Feed Recsys Lab skills."""
 
 from __future__ import annotations
 
@@ -10,15 +10,21 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skill" / "open-feed-recsys-lab"
-SCRIPT = SKILL / "scripts" / "open_feed_recsys_lab.py"
+SKILLS = {
+    "open-feed-recsys-lab": {
+        "path": ROOT / "skill" / "open-feed-recsys-lab",
+        "script": ROOT / "skill" / "open-feed-recsys-lab" / "scripts" / "open_feed_recsys_lab.py",
+        "required": ["SKILL.md", "agents/openai.yaml", "references/product-gate.md", "scripts/open_feed_recsys_lab.py"],
+    },
+    "x-algo-claim-auditor": {
+        "path": ROOT / "skill" / "x-algo-claim-auditor",
+        "script": ROOT / "skill" / "x-algo-claim-auditor" / "scripts" / "x_algo_claim_auditor.py",
+        "required": ["SKILL.md", "agents/openai.yaml", "references/claim-boundaries.md", "scripts/x_algo_claim_auditor.py"],
+    },
+}
 
 
 REQUIRED = [
-    SKILL / "SKILL.md",
-    SKILL / "agents" / "openai.yaml",
-    SKILL / "references" / "product-gate.md",
-    SCRIPT,
     ROOT / "README.md",
     ROOT / "LICENSE",
 ]
@@ -41,7 +47,11 @@ def read(path: Path) -> str:
 
 
 def check_required() -> None:
-    missing = [str(path.relative_to(ROOT)) for path in REQUIRED if not path.exists()]
+    paths = list(REQUIRED)
+    for spec in SKILLS.values():
+        skill_path = spec["path"]
+        paths.extend(skill_path / rel for rel in spec["required"])
+    missing = [str(path.relative_to(ROOT)) for path in paths if not path.exists()]
     if missing:
         fail(f"missing required files: {missing}")
 
@@ -64,18 +74,20 @@ def check_no_cache_files() -> None:
 
 
 def check_frontmatter() -> None:
-    text = read(SKILL / "SKILL.md")
-    if not text.startswith("---\n"):
-        fail("SKILL.md is missing YAML frontmatter")
-    end = text.find("\n---", 4)
-    if end == -1:
-        fail("SKILL.md frontmatter is not closed")
-    frontmatter = text[4:end]
-    for field in ["name:", "description:", "license:", "metadata:"]:
-        if field not in frontmatter:
-            fail(f"SKILL.md frontmatter missing {field}")
-    if '"skillKey":"open-feed-recsys-lab"' not in frontmatter:
-        fail("metadata.openclaw.skillKey must be open-feed-recsys-lab")
+    for name, spec in SKILLS.items():
+        skill_md = spec["path"] / "SKILL.md"
+        text = read(skill_md)
+        if not text.startswith("---\n"):
+            fail(f"{skill_md.relative_to(ROOT)} is missing YAML frontmatter")
+        end = text.find("\n---", 4)
+        if end == -1:
+            fail(f"{skill_md.relative_to(ROOT)} frontmatter is not closed")
+        frontmatter = text[4:end]
+        for field in ["name:", "description:", "license:", "metadata:"]:
+            if field not in frontmatter:
+                fail(f"{skill_md.relative_to(ROOT)} frontmatter missing {field}")
+        if f'"skillKey":"{name}"' not in frontmatter:
+            fail(f"metadata.openclaw.skillKey must be {name}")
 
 
 def check_secrets() -> None:
@@ -91,8 +103,9 @@ def check_secrets() -> None:
 
 
 def check_compile() -> None:
+    scripts = [spec["script"] for spec in SKILLS.values()]
     proc = subprocess.run(
-        [sys.executable, "-m", "py_compile", str(SCRIPT)],
+        [sys.executable, "-m", "py_compile", *map(str, scripts)],
         cwd=ROOT,
         text=True,
         stdout=subprocess.PIPE,

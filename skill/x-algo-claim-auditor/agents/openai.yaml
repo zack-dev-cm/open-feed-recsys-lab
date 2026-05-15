@@ -1,0 +1,4 @@
+interface:
+  display_name: "X Algo Claim Auditor"
+  short_description: "Audit X algorithm claims with public source citations."
+  default_prompt: "Use $x-algo-claim-auditor to audit a claim about xai-org/x-algorithm and return a source-backed verdict with evidence."
