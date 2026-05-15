@@ -1,26 +1,43 @@
 # ClawHub Publish Notes
 
-## Skill
+## Published Skills
 
-- slug: `open-feed-recsys-lab`
-- name: `Open Feed Recsys Lab`
-- version: `1.0.1`
-- tags: `recsys,x-algorithm,phoenix,codex`
-- source path: `skill/open-feed-recsys-lab`
+| Skill | Version | Source path | Tags |
+| --- | --- | --- | --- |
+| `open-feed-recsys-lab` | `1.0.2` | `skill/open-feed-recsys-lab` | `recsys,x-algorithm,phoenix,codex` |
+| `x-algo-claim-auditor` | `1.0.0` | `skill/x-algo-claim-auditor` | `x-algorithm,claims,recsys,codex` |
 
-## Publish Command
+## Publish Commands
 
 ```bash
-clawhub publish skill/open-feed-recsys-lab \
+clawhub publish /Users/zack/Documents/GitHub/open-feed-recsys-lab/skill/open-feed-recsys-lab \
   --slug open-feed-recsys-lab \
   --name "Open Feed Recsys Lab" \
-  --version 1.0.1 \
+  --version 1.0.2 \
   --tags "recsys,x-algorithm,phoenix,codex" \
-  --changelog "Align public license metadata with ClawHub MIT-0 registry display after the initial release."
+  --changelog "Add companion claim-auditor routing guidance while preserving the reproducibility report workflow."
+```
+
+```bash
+clawhub publish /Users/zack/Documents/GitHub/open-feed-recsys-lab/skill/x-algo-claim-auditor \
+  --slug x-algo-claim-auditor \
+  --name "X Algo Claim Auditor" \
+  --version 1.0.0 \
+  --tags "x-algorithm,claims,recsys,codex" \
+  --changelog "Initial release: audit viral X algorithm claims against public source with verdicts, evidence ledgers, and share cards."
+```
+
+## Install Smoke
+
+```bash
+rm -rf /tmp/clawhub-skill-install-smoke
+mkdir -p /tmp/clawhub-skill-install-smoke
+clawhub --workdir /tmp/clawhub-skill-install-smoke --dir skills install open-feed-recsys-lab
+clawhub --workdir /tmp/clawhub-skill-install-smoke --dir skills install x-algo-claim-auditor
 ```
 
 ## Expected Static Review Notes
 
-The bundled script uses `subprocess` to run local `git` and optional `uv` commands. It also uses `urllib.request` for optional GitHub metadata. These are intentional and should be described as local reproducibility operations, not account-control or credential-handling behavior.
+Both skills intentionally use local subprocess calls for `git`, Python checks, or local source inspection. The claim auditor may clone the public `xai-org/x-algorithm` repo when no `--repo-dir` is supplied.
 
-The skill does not ask for cookies, tokens, credentials, private X data, account analytics, or private messages.
+The skills do not ask for cookies, tokens, credentials, private X data, account analytics, private feeds, DMs, or private messages. They should not be represented as reach predictors, shadowban detectors, or live For You feed clones.

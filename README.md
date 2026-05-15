@@ -83,6 +83,7 @@ cp -R skill/x-algo-claim-auditor "${CODEX_HOME:-$HOME/.codex}/skills/x-algo-clai
 
 ```bash
 clawhub install open-feed-recsys-lab
+clawhub install x-algo-claim-auditor
 ```
 
 ## Boundary
@@ -94,7 +95,9 @@ This is not an "algorithm growth hack" and does not promise reach, ranking, vira
 ```bash
 python3 -m unittest discover -s tests
 python3 scripts/check_skill_bundle.py
-python3 -m py_compile skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py
+python3 -m py_compile \
+  skill/open-feed-recsys-lab/scripts/open_feed_recsys_lab.py \
+  skill/x-algo-claim-auditor/scripts/x_algo_claim_auditor.py
 ```
 
 ## License
